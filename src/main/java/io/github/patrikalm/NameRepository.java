@@ -4,9 +4,14 @@ import java.util.Arrays;
 
 public class NameRepository {
 
-    private static String [] names = new String[0];
+    private static String [] names = /*new String[0];*/ {"Peter", "Hans","Tore"};
 
+    public static void main(String[] args) {
 
+        add("Lennart");
+
+        System.out.println(Arrays.toString(names));
+    }
 
 
 
@@ -39,7 +44,7 @@ public class NameRepository {
 
         for (int i = 0; i < names.length; i++) {
 
-            if (names[i] = fullName) {
+            if (names[i].equals(fullName)) {
 
                 return names[i];
             }
@@ -51,26 +56,18 @@ public class NameRepository {
 
     public static boolean add(final String fullName) {
 
-        for (int i = 0; i < names.length; i++) {
+        if (find(fullName) != null) {
 
-            if (names[i].equals(fullName)) {
+            return false;
 
-                return false;
+            }
+        else {
+
+            names = Arrays.copyOf(names, names.length + 1);
+
+            names [names.length-1] = fullName;
+            return true;
 
             }
         }
-
-            String [] tempArray = new String [names.length+1];
-
-            tempArray = findAll();
-
-            tempArray [names.length] = fullName;
-
-            names = tempArray;
-
-
-            return true;
-
     }
-
-}
