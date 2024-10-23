@@ -4,15 +4,7 @@ import java.util.Arrays;
 
 public class NameRepository {
 
-    private static String [] names = /*new String[0];*/ {"Peter", "Hans","Tore"};
-
-    public static void main(String[] args) {
-
-        add("Lennart");
-
-        System.out.println(Arrays.toString(names));
-    }
-
+    private static String [] names = new String[0];
 
 
     public static int getSize() {
@@ -66,6 +58,7 @@ public class NameRepository {
             names = Arrays.copyOf(names, names.length + 1);
 
             names [names.length-1] = fullName;
+
             return true;
 
             }
