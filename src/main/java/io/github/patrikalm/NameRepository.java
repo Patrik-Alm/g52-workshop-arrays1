@@ -1,18 +1,12 @@
 package io.github.patrikalm;
 
+import java.sql.SQLOutput;
 import java.util.Arrays;
 
 public class NameRepository {
 
-    private static String[] names = {"Sven Svensson", "Sven Göransson", "Knut Knutsson", "Göran Svensson", "Sven Arnesson"};
+    private static String[] names = new String[0];
 
-    public static void main(String[] args) {
-
-        String [] localNames = Arrays.copyOf(findByLastName("Svensson"), findByLastName("Svensson").length);
-
-        System.out.println(Arrays.toString(localNames));
-
-    }
 
         public static int getSize () {
 
@@ -131,6 +125,7 @@ public class NameRepository {
         public static boolean remove(final String fullName) {
 
             String [] localNames = new String[names.length-1];
+            int counter=0;
 
             for (int i = 0; i < names.length; i++) {
 
@@ -138,15 +133,19 @@ public class NameRepository {
 
                     for (int j = 0; j < names.length; j++) {
 
-                        if (j == i) {
+                        if (i != j) {
 
-                            continue;
+                            System.out.println(counter);
+                            localNames[counter] = names[j];
+                            counter++;
+
                         }
 
-                        localNames[j] = names[j];
 
-                }
 
+                    }
+
+                    names = Arrays.copyOf(localNames, localNames.length);
                     return true;
                 }
 
