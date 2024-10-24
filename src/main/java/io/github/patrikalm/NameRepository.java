@@ -114,5 +114,45 @@ public class NameRepository {
 
         }
 
+        public static boolean update (final String original, final String updatedName) {
+
+            for (int i = 0; i < names.length; i++) {
+
+                if (names[i].equals(original)) {
+
+                    names[i] = updatedName;
+
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static boolean remove(final String fullName) {
+
+            String [] localNames = new String[names.length-1];
+
+            for (int i = 0; i < names.length; i++) {
+
+                if (names[i].equals(fullName)) {
+
+                    for (int j = 0; j < names.length; j++) {
+
+                        if (j == i) {
+
+                            continue;
+                        }
+
+                        localNames[j] = names[j];
+
+                }
+
+                    return true;
+                }
+
+            }
+
+            return false;
+        }
 
 }
