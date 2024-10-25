@@ -125,7 +125,7 @@ public class NameRepository {
         public static boolean remove(final String fullName) {
 
             String [] localNames = new String[names.length-1];
-            int counter=0;
+            int counter = 0;
 
             for (int i = 0; i < names.length; i++) {
 
@@ -135,14 +135,10 @@ public class NameRepository {
 
                         if (i != j) {
 
-                            System.out.println(counter);
                             localNames[counter] = names[j];
                             counter++;
 
                         }
-
-
-
                     }
 
                     names = Arrays.copyOf(localNames, localNames.length);
